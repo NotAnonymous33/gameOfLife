@@ -1,5 +1,6 @@
 import pygame
 from game import Game
+import random
 
 game = Game()
 
@@ -77,6 +78,13 @@ while gameOn:
                     for row in cells:
                         for cell in row:
                             cell.on = False
+                for i in range(1, 10):
+                    if event.key == eval("pygame.K_" + str(i)):
+                        for row in cells:
+                            for cell in row:
+                                r = random.randint(1, i)
+                                cell.on = r == 1
+
         pos = pygame.mouse.get_pos()
 
         for row in cells:
